@@ -7,12 +7,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/skivvyjs/node-project.git"
+    "url": "https://github.com/skivvyjs/project-base.git"
   },
   "author": "Tim Kendrick <timkendrick@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/skivvyjs/node-project/issues"
+    "url": "https://github.com/skivvyjs/project-base/issues"
   },
-  "homepage": "https://github.com/skivvyjs/node-project"
+  "homepage": "https://github.com/skivvyjs/project-base"
 }
