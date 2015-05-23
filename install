@@ -1,0 +1,57 @@
+#!/bin/bash
+
+CONFIG_PATH=$PWD
+EDITORCONFIG_PATH=.editorconfig
+ESLINTRC_PATH=.eslintrc
+GITIGNORE_PATH=.gitignore
+GIT_PATH=.git
+GIT_HOOK_PATH=$GIT_PATH/hooks/pre-push
+
+cd ../../..
+
+RELATIVE_CONFIG_PATH=${CONFIG_PATH:${#PWD}+1}
+
+if [ ! -e $GIT_PATH ];
+then
+	git init
+fi
+
+if [ ! -e $GITIGNORE_PATH ]
+then
+	touch $GITIGNORE_PATH
+	echo "[node-project] Created $GITIGNORE_PATH"
+
+	echo "/$GITIGNORE_PATH" >> $GITIGNORE_PATH
+	echo "[node-project] Added $GITIGNORE_PATH to $GITIGNORE_PATH"
+fi
+
+if [ ! -e $EDITORCONFIG_PATH ] && [ ! -h $EDITORCONFIG_PATH ];
+then
+	ln -s $RELATIVE_CONFIG_PATH/editorconfig $EDITORCONFIG_PATH
+	echo "[node-project] Symlink $EDITORCONFIG_PATH -> $RELATIVE_CONFIG_PATH/editorconfig"
+	
+	if ! grep -Fxq "/$EDITORCONFIG_PATH" $GITIGNORE_PATH
+	then
+		echo "/$EDITORCONFIG_PATH" >> $GITIGNORE_PATH
+		echo "[node-project] Added $EDITORCONFIG_PATH to $GITIGNORE_PATH"
+	fi
+fi
+
+if [ ! -e $ESLINTRC_PATH ] && [ ! -h $ESLINTRC_PATH ];
+then
+	ln -s $RELATIVE_CONFIG_PATH/eslintrc $ESLINTRC_PATH
+	echo "[node-project] Symlink $ESLINTRC_PATH -> $RELATIVE_CONFIG_PATH/eslintrc"
+	
+	if ! grep -Fxq "/$ESLINTRC_PATH" $GITIGNORE_PATH
+	then
+		echo "/$ESLINTRC_PATH" >> $GITIGNORE_PATH
+		echo "[node-project] Added $ESLINTRC_PATH to $GITIGNORE_PATH"
+	fi
+fi
+
+if [ ! -e $GIT_HOOK_PATH ] && [ ! -h $GIT_HOOK_PATH ];
+then
+	RELATIVE_GIT_HOOK_PATH="../../$RELATIVE_CONFIG_PATH/git-hooks/pre-push"
+	ln -s $RELATIVE_GIT_HOOK_PATH $GIT_HOOK_PATH
+	echo "[node-project] Symlink $GIT_HOOK_PATH -> $RELATIVE_GIT_HOOK_PATH"
+fi

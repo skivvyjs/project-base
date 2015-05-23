@@ -1,0 +1,18 @@
+{
+  "name": "@skivvy/project-base",
+  "version": "0.1.0",
+  "description": "Base package for Node projects",
+  "scripts": {
+    "postinstall": "./install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skivvyjs/node-project.git"
+  },
+  "author": "Tim Kendrick <timkendrick@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skivvyjs/node-project/issues"
+  },
+  "homepage": "https://github.com/skivvyjs/node-project"
+}
