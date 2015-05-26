@@ -6,11 +6,18 @@ then
 	NAME='(empty branch)'
 fi
 
-echo "Running pre-push hook on $NAME"
-
 # Don't run on rebase
-if [ "$NAME" != "(no branch)" ]
+if [ "$NAME" = "(no branch)" ]
 then
+	exit 0
+fi
+
+# Only run on master branch and unpublished branch
+if [ "$NAME" != "master" ] && [ "$NAME" != "(empty branch)" ]
+then
+	echo "Skipping pre-push hook for $NAME branch"
+else
+	echo "Running pre-push hook on $NAME"
 
 	CHANGES=$(git diff --numstat | wc -l)
 	CACHED_CHANGES=$(git diff --cached --numstat | wc -l)
