@@ -4,7 +4,7 @@
 		"dot-notation": false,
 		"no-underscore-dangle": false,
 		"no-shadow": false,
-		"no-use-before-define": false,
+		"no-use-before-define": [2, "nofunc"],
 		"no-unused-vars": [2, {
 			"vars": "all",
 			"args": "none"
