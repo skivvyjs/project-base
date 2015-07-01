@@ -1,6 +1,6 @@
 {
   "name": "@skivvy/project-base",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Base package for Node projects",
   "scripts": {
     "postinstall": "./install"
