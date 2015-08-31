@@ -1,4 +1,9 @@
 {
+	"root": true,
+	"extends": "eslint:recommended",
+	"env": {
+		"node": true
+	},
 	"rules": {
 		"quotes": [2, "single"],
 		"dot-notation": 0,
@@ -9,9 +14,7 @@
 			"vars": "all",
 			"args": "none"
 		}],
-		"consistent-return": 0
-	},
-	"env": {
-		"node": true
+		"consistent-return": 0,
+		"no-console": 2
 	}
 }
