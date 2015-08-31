@@ -24,4 +24,3 @@ This package creates symbolic links for the following files, if they do not alre
 - `.editorconfig`: [EditorConfig](http://editorconfig.org/) configuration
 - `.eslintrc`: [ESLint](http://eslint.org/) configuration
 - `.git/hooks/pre-push`: Git pre-push hook that runs `npm test` before pushing
-- `.gitignore`: Add `.editorconfig` and `.eslintrc` to ignored files
